@@ -1,9 +1,14 @@
 #ifndef COMPARABLE_H
 #define COMPARABLE_H
 
-class Comparable{
+#include "object.h"
+#include <string>
+using std::string;
+
+class Comparable : public Object{
 public:
-	virtual int CompareTo(const Comparable&)const=0;
+	virtual int CompareTo(const Comparable& rhs)const=0;
+	virtual string ToString()const;
 };
 
 

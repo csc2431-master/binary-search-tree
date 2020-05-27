@@ -10,12 +10,13 @@ class BinaryTree{
 		Node* right;
 	};
 	Node* _root;
-	bool Insert(const Comparable*, Node*);
+	bool Insert(Comparable*, Node*);
 	void BlowItUp(Node*);
 public:
 	BinaryTree();
 	virtual ~BinaryTree();
-	bool Insert(const Comparable*);
+	bool Insert(Comparable* element);
+	Comparable* Remove(Comparable* element);
 };
 
 

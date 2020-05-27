@@ -20,7 +20,7 @@ void BinaryTree::BlowItUp(Node* node){
 	delete node->data;
 	delete node;
 }
-bool BinaryTree::Insert(const Comparable* element){
+bool BinaryTree::Insert(Comparable* element){
 	if (_root == nullptr){
 		Node* neo = new Node;
 		neo->left = neo->right = nullptr;
@@ -31,11 +31,11 @@ bool BinaryTree::Insert(const Comparable* element){
 		return Insert(element, _root);
 	}
 }
-bool BinaryTree::Insert(const Comparable* element, Node* node){
+bool BinaryTree::Insert(Comparable* element, Node* node){
 	if (node == nullptr){
 		return false;
 	}
-	if (element->CompareTo(node->data) < 0){
+	if (element->CompareTo(*(node->data)) < 0){
 		if (node->left == nullptr){
 			Node* neo = new Node;
 			neo->left = neo->right = nullptr;
@@ -46,7 +46,7 @@ bool BinaryTree::Insert(const Comparable* element, Node* node){
 		}else{
 			return Insert(element, node->left);
 		}
-	}else if (element->CompareTo(node->data) > 0){
+	}else if (element->CompareTo(*(node->data)) > 0){
 		if (node->right == nullptr){
 			Node* neo = new Node;
 			neo->left = neo->right = nullptr;
@@ -60,4 +60,9 @@ bool BinaryTree::Insert(const Comparable* element, Node* node){
 	}else{
 		return false;
 	}
+}
+
+Comparable *BinaryTree::Remove(Comparable *element) {
+	// Let's do it together from ZyBooks code
+
 }
