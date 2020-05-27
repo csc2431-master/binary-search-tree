@@ -64,5 +64,44 @@ bool BinaryTree::Insert(Comparable* element, Node* node){
 
 Comparable *BinaryTree::Remove(Comparable *element) {
 	// Let's do it together from ZyBooks code
+	return nullptr;
+}
 
+void BinaryTree::InOrderTraversal(const BinaryTree::Node *node, Callback &callback) const {
+	if (node->left)
+		InOrderTraversal(node->left, callback);
+	callback.DoSomething(node->data);
+	if (node->right)
+		InOrderTraversal(node->right, callback);
+}
+
+void BinaryTree::PostOrderTraversal(const BinaryTree::Node *node, Callback &callback) const {
+	if (node->left)
+		PostOrderTraversal(node->left, callback);
+	if (node->right)
+		PostOrderTraversal(node->right, callback);
+	callback.DoSomething(node->data);
+}
+
+void BinaryTree::PreOrderTraversal(const BinaryTree::Node *node, Callback &callback) const {
+	callback.DoSomething(node->data);
+	if (node->left)
+		PreOrderTraversal(node->left, callback);
+	if (node->right)
+		PreOrderTraversal(node->right, callback);
+}
+
+void BinaryTree::InOrderTraversal(Callback &callback) const {
+	if (_root)
+		InOrderTraversal(_root, callback);
+}
+
+void BinaryTree::PostOrderTraversal(Callback &callback) const {
+	if (_root)
+		PostOrderTraversal(_root, callback);
+}
+
+void BinaryTree::PreOrderTraversal(Callback &callback) const {
+	if (_root)
+		PreOrderTraversal(_root, callback);
 }
