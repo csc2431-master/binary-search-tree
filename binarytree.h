@@ -1,10 +1,11 @@
 #ifndef BINTREE_H
 #define BINTREE_H
 
+#include "object.h"
 #include "comparable.h"
 #include "callback.h"
 
-class BinaryTree{
+class BinaryTree: public Object{
 	struct Node{
 		Comparable* data;
 		Node* left;
